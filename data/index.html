@@ -1,0 +1,105 @@
+<html manifest="cache.appcache">
+
+<head>
+    <title>PS5 Kernel Exploit 3.xx-4.xx</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+
+    <script defer src="int64.js"></script>
+    <script defer src="rop.js"></script>
+    <script defer src="exploit.js"></script>
+    <script defer src="payload_map.js"></script>
+    <script defer src="custom_host.js"></script>
+
+    <script>
+        window.addEventListener('load', function () {
+            onload_setup();
+        }, false);
+    </script>
+</head>
+
+<body>
+    <svg style="display: none" version="2.0">
+        <defs>
+            <symbol id="delete-icon" viewBox="0 -960 960 960">
+                <path
+                    d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z" />
+            </symbol>
+            <symbol id="forward-arrow-icon" viewBox="0 -960 960 960" >
+                <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/>
+            </symbol>
+            
+        </defs>
+    </svg>
+
+    <div id="toast-container"></div>
+
+    <div id="center-view" style="position: absolute; top: 0; left: 0; width: 100%; min-height: 100%;">
+
+        <div style="margin-top: 15px; position: absolute; width: 100%;">
+            <h1 style="text-align: center;">PS5 Jailbreak 3.xx-4.xx</h1>
+            <p id="current-fw" class="text-secondary"
+                style="text-align: center; margin-bottom: 8px; padding-bottom: 0;">
+            </p>
+
+            <p id="listening-ip" class="text-secondary" style="text-align: center; margin-top: 0; padding-top: 0;">
+                <br />
+            </p>
+        </div>
+        
+
+        <div id="before-jb-view">
+
+            <div id="run-jb-parent" class="opacity-transition"
+                style="display: flex; justify-content: center; align-items: center; position: absolute; top: 0;left: 0; width: 100%; height: 100%;">
+                <a tabindex="0" class="btn" style="max-width: 50%;" id="run-jb" onclick="runJailbreak()">Jailbreak</a>
+            </div>
+
+            <div id="jb-progress" class="opacity-transition"
+                style="display: flex; flex-direction: column; justify-content: center; align-items: center; position: absolute; top: 0;left: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none;">
+                <div class="lds-ellipsis" style="margin-top: 40px;">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <p id="jb-progress-status-text" style="text-align: center; width: 100%; margin-top: 40px;">
+                    Getting
+                    ready... <br /><span class="secondary-text">(may look frozen)</span></p>
+                <textarea id="console" class="log" style="display: none;"></textarea>
+            </div>
+
+            <div id="post-jb-view" class="opacity-transition"
+                style="width: 100%;position: relative; max-height: 10px; overflow-y: hidden; margin-top: 200px;">
+                <!-- it seems like sometimes display none to anything else and transforms like causing crashes after the jailbreak. idk. -->
+                <div id="payloads-list" class="grid-container">
+                </div>
+            </div>
+
+            <center style="position: fixed;bottom: 0;width: 100%;margin-bottom: 10px;font-size: 13px;"
+                class="info opacity-transition" id="credits">
+                <b id="version"> v1.04</b>
+                <h3 style="margin-top: 0;padding-top: 0;">
+                    <br />
+                    <a href="https://twitter.com/theflow0">@theflow0</a>,
+                    <a href="https://twitter.com/SpecterDev">@SpecterDev</a>,
+                    ChendoChap,
+                    <a href="https://twitter.com/Znullptr">@Znullptr</a>,
+                    <a href="https://twitter.com/sleirsgoevy">@sleirsgoevy</a>,
+                    <br />
+                    <a href="https://twitter.com/psxdev">@psxdev</a>,
+                    <a href="https://twitter.com/flat_z">@flat_z</a>,
+                    <a href="https://twitter.com/notzecoxao">@notzecoxao</a>,
+                    <a href="https://twitter.com/SocraticBliss">@SocraticBliss</a>,
+                    laureeeeeee
+                </h3>
+				<h3 style="margin-top: 0;padding-top: 0;">
+					esp8266 implementation by <a href="#" style="font-size: 20px;"><strong>Hossam Mohamed</strong></a>, based on ps5-server by Stogged
+                </h3>
+            </center>
+        </div>
+    </div>
+
+</body>
+
+</html>
